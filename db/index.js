@@ -54,19 +54,19 @@ const connect = ()=> {
 };
 
 const seed = ()=> {
-  return connect()
-    .then( ()=> {
+  //return connect()
+    //.then( ()=> {
       return User.create({ name: 'prof'})
-    })
+    //})
     .then( user => Tweet.createTweet('prof', 'hi foo', 'foo' )) 
     .then( user => Tweet.createTweet('prof', 'hi foo bar', 'foo,bar' )) 
-    .then( user => Tweet.createTweet('mitch', 'hi buzz', 'buzz' )) 
+    .then( user => Tweet.createTweet('mitch', 'hi buzz', 'buzz' ));
 };
 const sync = ()=> {
-  return connect()
-    .then(()=> {
+  //return connect()
+    //.then(()=> {
       return db.sync({ force: true });
-    });
+    //});
 };
 module.exports = {
   sync,

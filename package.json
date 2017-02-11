@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "DATABASE_URL=postgres://localhost/twitter_sql_with_sequelize_test nodemon ./node_modules/mocha/bin/mocha",
     "start:dev": "DATABASE_URL=postgres://localhost/twitter_sql_with_sequelize nodemon server"
   },
   "keywords": [],
@@ -12,7 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.16.1",
+    "chai": "^3.5.0",
     "express": "^4.14.1",
+    "mocha": "^3.2.0",
     "pg": "^6.1.2",
     "sequelize": "^3.30.2",
     "swig": "^1.4.2"
