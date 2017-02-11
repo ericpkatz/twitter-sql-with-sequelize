@@ -1,0 +1,52 @@
+<html>
+  <head></head>
+  <body>
+    <h1>
+      <a href='/'>Twitter SQL with Sequelize</a>
+    </h1>
+    {% if (name || tag) %}
+      <a href='/'>All Tweets</a>
+    {% endif %}
+    <div>
+      <form action='/tag/'>
+        <div>
+          <label>Search By Tag</label>
+          <br />
+          <input name='tag' value='{{ tag }}' />
+        </div>
+        <button type='submit'>Search</button>
+      </form>
+    </div>
+    <form method='POST' action='/'>
+      <div>
+        <label>User</label>
+        <br />
+        <input name='name' value="{{ name }}" />
+      </div>
+      <div>
+        <label>Content</label>
+        <br />
+        <input name='content' />
+      </div>
+      <div>
+        <label>Tags</label>
+        <br />
+        <input name='tags' />
+      </div>
+      <button type='submit'>Save</button>
+    </form>
+    <ul>
+      {% for tweet in tweets %}
+        <li>
+          {{ tweet.content }} 
+          <a href='/{{tweet.user.name}}'>{{ tweet.user.name }}</a>
+          <ul>
+            {% for tag in tweet.tags %}
+              <li>{{ tag }}</li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
